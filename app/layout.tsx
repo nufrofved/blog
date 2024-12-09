@@ -1,18 +1,19 @@
 import './globals.css';
 
+import { Inter } from 'next/font/google';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import { NavigationBar } from './_components/navigation-bar';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
 const geistMono = localFont({
   src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
   weight: '100 900',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -28,12 +29,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.className} ${geistMono.variable} antialiased max-w-prose mx-auto px-4`}
       >
-        <header className="max-w-screen-sm mx-auto px-4 py-12">
-          <NavigationBar />
+        <header className="pt-12 pb-6 border-b border-gray-200">
+          <h1 className="text-2xl font-bold leading-5 bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-700 font-geistMono max-w-max">
+            <Link href="/">nufrofved</Link>
+          </h1>
+          <p className="text-sm my-1 font-geistMono">
+            by{' '}
+            <Link href="/me" className="underline">
+              Suyeon Kim
+            </Link>
+          </p>
         </header>
-        <main className="max-w-screen-sm mx-auto px-4 py-12">{children}</main>
+        <main className="pt-6 pb-12">{children}</main>
       </body>
     </html>
   );
