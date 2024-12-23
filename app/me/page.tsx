@@ -1,7 +1,7 @@
 import { EDUCATIONAL_EXPERIENCES, WORK_EXPERIENCES } from './constant';
 
-import { ExperienceBlock } from './components/experience';
 import { ReactNode } from 'react';
+import { ExperienceBlock } from './components/experience';
 
 export default function Me() {
   return (
@@ -39,7 +39,7 @@ function Section({ children }: Readonly<{ children: ReactNode }>) {
 
 function H2({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+    <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 dark:text-cyan-400">
       {children}
     </h2>
   );

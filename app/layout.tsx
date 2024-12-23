@@ -1,9 +1,11 @@
 import './globals.css';
 
-import { Inter } from 'next/font/google';
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
+import Link from 'next/link';
+import { ModeChanger } from './components/mode-changer';
+import { ThemeProvider } from './components/theme-provider';
 
 const geistMono = localFont({
   src: './fonts/GeistMonoVF.woff',
@@ -27,22 +29,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} ${geistMono.variable} antialiased max-w-prose mx-auto px-4`}
+        className={`${inter.className} ${geistMono.variable} antialiased bg-white dark:bg-gray-900`}
       >
-        <header className="pt-12 pb-6 border-b border-gray-200">
-          <h1 className="text-2xl font-bold leading-5 bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-700 font-geistMono max-w-max">
-            <Link href="/">nufrofved</Link>
-          </h1>
-          <p className="text-sm my-1 font-geistMono">
-            by{' '}
-            <Link href="/me" className="underline">
-              Suyeon Kim
-            </Link>
-          </p>
-        </header>
-        <main className="pt-6 pb-12">{children}</main>
+        <div className="max-w-prose mx-auto px-6">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            disableTransitionOnChange
+          >
+            <header className="pt-12 pb-6 border-b border-gray-200 flex justify-between">
+              <div>
+                <h1 className="text-2xl font-bold leading-5 bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-700 font-geistMono max-w-max dark:from-cyan-600 dark:to-cyan-300">
+                  <Link href="/">nufrofved</Link>
+                </h1>
+                <p className="text-sm my-1 font-geistMono">
+                  by{' '}
+                  <Link href="/me" className="underline">
+                    Suyeon Kim
+                  </Link>
+                </p>
+              </div>
+              <ModeChanger />
+            </header>
+            <main className="pt-6 pb-12">{children}</main>
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

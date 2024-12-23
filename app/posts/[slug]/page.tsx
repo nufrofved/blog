@@ -1,5 +1,5 @@
 import { posts } from '@/.velite';
-import { formatDate } from '@/app/utils/format';
+import { formatDate } from '@/lib/format';
 import Link from 'next/link';
 
 export default async function Post({
@@ -28,16 +28,16 @@ export default async function Post({
 
   return (
     <>
-      <section className="prose">
+      <section className="prose dark:prose-invert">
         <h1>{title}</h1>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
           Last updated on{' '}
-          <span className="font-semibold text-gray-700">
+          <span className="font-semibold text-gray-700 dark:text-gray-200">
             {formatDate(date)}{' '}
           </span>
-          <span className="block text-gray-700 font-semibold">
+          <span className="block text-gray-700 font-semibold dark:text-gray-200">
             {readingTime} min read{' '}
-            <span className="text-gray-500 font-normal">
+            <span className="text-gray-500 font-normal dark:text-gray-400">
               (word count: {wordCount})
             </span>
           </span>
@@ -47,7 +47,7 @@ export default async function Post({
       {isPaginationEnabled && (
         <div className="my-8">
           <hr />
-          <div className="flex justify-between my-4">
+          <div className="flex justify-between my-4 gap-2 flex-wrap">
             {previousPost && (
               <Link href={`/posts/${previousPost.slug}`}>
                 {previousPost.title}
