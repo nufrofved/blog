@@ -1,12 +1,11 @@
 import { posts } from '@/.velite';
+import { Fragment } from 'react';
 
-// TODO: Add posts maximally 10 posts
 export default function Home() {
   return (
     <>
-      <h1>Hello World</h1>
       {posts.map(({ title }) => (
-        <>{title}</>
+        <Fragment key={title}>{title}</Fragment>
       ))}
     </>
   );
