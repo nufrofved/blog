@@ -15,4 +15,11 @@ const posts = defineCollection({
 
 export default defineConfig({
   collections: { posts },
+  prepare: ({ posts }) => {
+    posts = posts.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+    return { posts };
+  },
 });

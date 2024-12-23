@@ -1,7 +1,8 @@
 ---
-title: There are so many things that I need to know
-slug: hello-world
-date: 2024-12-25 21:55
+# title: What I thought I knew but actually didn't
+title: What I thought I knew
+slug: bar
+date: 2024-12-23 19:37
 summary: Hello world test post Hello world test post Hello world test post Hello world test post
 ---
 

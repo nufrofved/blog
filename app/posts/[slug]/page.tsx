@@ -1,4 +1,7 @@
+import { ChevronsLeft, ChevronsRight } from 'lucide-react';
+
 import { posts } from '@/.velite';
+import { Button } from '@/components/ui/button';
 import { formatDate } from '@/lib/format';
 import Link from 'next/link';
 
@@ -15,8 +18,8 @@ export default async function Post({
   }
 
   const post = posts[postIndex];
-  const previousPost = posts[postIndex - 1] || null;
-  const nextPost = posts[postIndex + 1] || null;
+  const previousPost = posts[postIndex + 1] || null;
+  const nextPost = posts[postIndex - 1] || null;
   const isPaginationEnabled = previousPost || nextPost;
 
   const {
@@ -49,12 +52,28 @@ export default async function Post({
           <hr />
           <div className="flex justify-between my-4 gap-2 flex-wrap">
             {previousPost && (
-              <Link href={`/posts/${previousPost.slug}`}>
-                {previousPost.title}
-              </Link>
+              <Button
+                asChild
+                variant="link"
+                className="text-ellipsis whitespace-normal min-h-fit mr-auto px-0"
+              >
+                <Link href={`/posts/${previousPost.slug}`}>
+                  <ChevronsLeft />
+                  {previousPost.title}
+                </Link>
+              </Button>
             )}
             {nextPost && (
-              <Link href={`/posts/${nextPost.slug}`}>{nextPost.title}</Link>
+              <Button
+                asChild
+                variant="link"
+                className="text-ellipsis whitespace-normal min-h-fit ml-auto px-0"
+              >
+                <Link href={`/posts/${nextPost.slug}`}>
+                  {nextPost.title}
+                  <ChevronsRight />
+                </Link>
+              </Button>
             )}
           </div>
         </div>
