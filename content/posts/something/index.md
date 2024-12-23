@@ -1,6 +1,6 @@
 ---
-title: Hello world
-slug: hello-world
+title: something
+slug: something
 date: 2024-12-23 16:37
 summary: Hello world test post Hello world test post Hello world test post Hello world test post
 ---
