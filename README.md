@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 개인 블로그
 
-## Getting Started
+아는 것을 적어놓고 정리하지 않으면 항상 까먹고 또 삽질해서 만든 블로그입니다.
 
-First, run the development server:
+혼자만 개발하는 작은 프로젝트라 평소 써보고 싶었던 라이브러리나 프레임워크 또는 최신 기술 위주로 사용했습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 기술스택
+
+- bun 1.2.1
+- Next.js 15
+- React 19
+- TypeScript 5
+- tailwindCSS 4
+- MDX
+  - @mdx-js/loader
+  - @mdx-js/react
+  - @next/mdx
+  - @types/mdx
+
+## 로컬에서 실행하기
+
+[Bun 설치 (Bun 없는 경우에만 설치)](https://bun.sh/docs/installation)
+
+```zsh
+curl -fsSL https://bun.sh/install | bash # for macOS, Linux, and WSL
+bun --version # 버전 확인
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+레파지토리 클론
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```zsh
+git clone https://github.com/nufrofved/blog.git
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+디펜던시 설치
 
-## Learn More
+```zsh
+cd blog
+bun install
+```
 
-To learn more about Next.js, take a look at the following resources:
+로컬에서 실행
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```zsh
+bun --bun run dev
+```
