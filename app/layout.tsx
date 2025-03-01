@@ -1,7 +1,9 @@
 import './globals.css';
 
 import { Inter } from 'next/font/google';
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import { description } from './constants/meta';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -10,8 +12,7 @@ export const metadata: Metadata = {
     default: 'nufrofved',
     template: '%s | nufrofved',
   },
-  description:
-    '이 블로그는 프론트엔드 개발자로 일하면서 경험한 것들, 배운 점을 남겨두기 위해 만들어졌습니다. 주로 React, Next.js 에 대해 직접 쓴 글 또는 번역한 글을 올릴 예정이며, 가끔 개인적인 관심사에 대한 글을 쓰기도 합니다.',
+  description,
 };
 
 export default function RootLayout({
@@ -24,7 +25,9 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <div className="relative min-h-screen grid grid-rows-[auto_minmax(0,1fr)_auto] max-w-prose mx-auto px-4">
           <header className="pt-8 pb-4">
-            <h1 className="font-medium">I develop something for fun</h1>
+            <Link href="/">
+              <h1 className="font-medium">I develop something for fun</h1>
+            </Link>
           </header>
           <main className="py-4">{children}</main>
           <footer className="pt-8 pb-4">
