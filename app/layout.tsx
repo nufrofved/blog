@@ -29,7 +29,7 @@ export default function RootLayout({
               <h1 className="font-medium">I develop something for fun</h1>
             </Link>
           </header>
-          <main className="py-4">{children}</main>
+          <main className="py-12">{children}</main>
           <footer className="pt-8 pb-4">
             <ul className="flex gap-4 font-medium">
               <li>
